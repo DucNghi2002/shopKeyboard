@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KeyBoards</title>
+    <style>
+        table, th, td {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<h1>All Keyboard</h1>
+<table class="tbl-employees">
+    <tr>
+        <th>Keyboard No</th>
+        <th>Keyboard Name</th>
+        <th>Keyboard Price</th>
+        <th>Keyboard Brand</th>
+        <th>Keyboard Detail</th>
+        <th>Keyboard Image</th>
+        <th>Edit Keyboard</th>
+        <th>Delete Keyboard</th>
+    </tr>
+    <tr th:each="keyboard : ${keyboards}">
+        <td th:text="${keyboard.keyBoardId}"></td>
+        <td th:text="${keyboard.keyBoardName}"></td>
+        <td th:text="${keyboard.keyBoardPrice}"></td>
+        <td th:text="${keyboard.keyBoarBrand}"></td>
+        <td th:text="${keyboard.keyBoardDetail}"></td>
+        <td th:text="${keyboard.keyBoardImage}"></td>
+
+
+        <td>
+            <a th:href="@{/employee_management/delete/{empNo}(empNo=${employee.employeeNo})}" th:text="${employee.employeeNo}"></a>
+
+            <a th:href="@{/employee_management/edit/{empNo}(empNo=${employee.employeeNo})}">Edit Keyboard</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" style="text-align: center">
+            <a href="/employee_management/add_new">Add new</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
